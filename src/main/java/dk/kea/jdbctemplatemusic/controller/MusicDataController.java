@@ -22,6 +22,7 @@ public class MusicDataController {
 
         //tilføj alle titler til viewmodel, så de kan bruges af Thymeleaf i html
         model.addAttribute("albums", musicRepository.getAll());
+        model.addAttribute("avgYear", musicRepository.avgYear());
         return "musikdata";
     }
 

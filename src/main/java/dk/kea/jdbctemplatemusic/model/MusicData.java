@@ -6,6 +6,8 @@ public class MusicData {
     private int year;
     private String company;
 
+    public MusicData(){}
+
     public MusicData(String artist, String title, int year, String company) {
         this.artist = artist;
         this.title = title;
