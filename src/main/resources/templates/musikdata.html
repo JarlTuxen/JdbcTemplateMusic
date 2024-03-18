@@ -25,14 +25,14 @@
         <td th:text="${album.year}">2016</td>
         <td th:text="${album.company}">Moonfog</td>
     </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td th:text="${avgYear}">Avg(year)</td>
-        <td></td>
-    </tr>
     </tbody>
 </table>
+<div class="statistics">
+    <h3>Statisik</h3>
 
+    <p>Ældste album: <span th:text="${minYear}">MIN(year)</span></p>
+    <p>Gennemsnit: <span th:text="${avgYear}">AVG(year)</span></p>
+    <p>Nyeste album: <span th:text="${maxYear}">MAX(year)</span></p>
+</div>
 </body>
 </html>

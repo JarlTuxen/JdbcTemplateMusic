@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class MusicRepository {
@@ -44,4 +45,17 @@ public class MusicRepository {
         int year = jdbcTemplate.queryForObject(sql, Integer.class);
         return year;
     }
+
+    public int minYear(){
+        final String sql = "SELECT MIN(year) FROM albums";
+        int year = jdbcTemplate.queryForObject(sql, Integer.class);
+        return year;
+    }
+
+    public int maxYear(){
+        final String sql = "SELECT MAX(year) FROM albums";
+        int year = jdbcTemplate.queryForObject(sql, Integer.class);
+        return year;
+    }
+
 }
