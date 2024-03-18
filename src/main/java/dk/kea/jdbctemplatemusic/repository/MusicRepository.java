@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class MusicRepository {
@@ -17,7 +16,7 @@ public class MusicRepository {
     private JdbcTemplate jdbcTemplate;
 
     public List<MusicData> getAll(){
-        String sql = "SELECT * FROM albums";
+        String sql = "SELECT * FROM albums ORDER BY year";
         List<MusicData> albums = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(MusicData.class));
 
         return albums;
