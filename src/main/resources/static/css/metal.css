@@ -1,0 +1,37 @@
+/* metal style */
+
+body {
+    background-color: #1c1c1c;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #ffcc00;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #ffcc00;
+    font-size: 16px;
+}
+
+th, td {
+    border: 1px solid #ffcc00;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #ffcc00;
+}
+
+tr:nth-child(even) {
+    background-color: #222;
+}
+
+tr:hover {
+    background-color: #444;
+}

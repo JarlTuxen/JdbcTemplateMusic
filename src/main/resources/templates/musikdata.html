@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Data</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/metal.css}" href="../static/css/metal.css"/>
+</head>
+<body>
+
+<h2>Music Data</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Record Company</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="album : ${albums}">
+        <td th:text="${album.artist}">Satyricon</td>
+        <td th:text="${album.title}">Nemesis Divina</td>
+        <td th:text="${album.year}">2016</td>
+        <td th:text="${album.company}">Moonfog</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
