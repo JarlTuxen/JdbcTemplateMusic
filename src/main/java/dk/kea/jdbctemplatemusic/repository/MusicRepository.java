@@ -18,9 +18,8 @@ public class MusicRepository {
 
     public List<MusicData> findAll(){
         final String GET_ALL_SQL = "SELECT * FROM albums ORDER BY year";
-        List<MusicData> albums = jdbcTemplate.query(GET_ALL_SQL, new BeanPropertyRowMapper<>(MusicData.class));
+        return jdbcTemplate.query(GET_ALL_SQL, new BeanPropertyRowMapper<>(MusicData.class));
 
-        return albums;
     }
 
     public void insert(MusicData musicData){
@@ -64,20 +63,20 @@ public class MusicRepository {
 
     public int avgYear(){
         final String sql = "SELECT AVG(year) FROM albums";
-        int year = jdbcTemplate.queryForObject(sql, Integer.class);
-        return year;
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+
     }
 
     public int minYear(){
         final String sql = "SELECT MIN(year) FROM albums";
-        int year = jdbcTemplate.queryForObject(sql, Integer.class);
-        return year;
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+
     }
 
     public int maxYear(){
         final String sql = "SELECT MAX(year) FROM albums";
-        int year = jdbcTemplate.queryForObject(sql, Integer.class);
-        return year;
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+
     }
 
 }
