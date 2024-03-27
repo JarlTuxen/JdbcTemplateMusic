@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Music Data</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/metal.css}" href="../static/css/metal.css"/>
+</head>
+<body>
+    <h2>Create new album</h2>
+
+    <form action="/create" method="post">
+        <label for="artist-field">Artist:</label>
+        <input id="artist-field" name="artist" type="text">
+
+        <label for="title-field">Title:</label>
+        <input id="title-field" name="title" type="text">
+
+        <label for="year-field">Year:</label>
+        <input id="year-field" name="year" type="number">
+
+        <label for="company-field">Company:</label>
+        <input id="company-field" name="company" type="text">
+
+        <input type="submit" value="Create album">
+
+    </form>
+
+</body>
+</html>

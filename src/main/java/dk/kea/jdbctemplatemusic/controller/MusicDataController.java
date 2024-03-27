@@ -33,14 +33,17 @@ public class MusicDataController {
     @GetMapping("/create")
     public String showCreate(){
         //vis create-siden
-        return "create";
+        return "createmusic";
     }
 
     //fra form action
     @PostMapping("/create")
-    public String createMusicData(@RequestBody MusicData musicData){
+    public String createMusicData( @RequestParam("artist") String artist,
+                                   @RequestParam("title") String title,
+                                   @RequestParam("year") int year,
+                                   @RequestParam("company") String company){
         //gem nyt produkt
-        musicRepository.insert(musicData);
+        musicRepository.insert(new MusicData(artist, title, year, company));
 
         //tilbage til produktlisten
         return "redirect:/";
@@ -56,7 +59,7 @@ public class MusicDataController {
         model.addAttribute("musicdata", updateMusicData);
 
         //fortæl Spring hvilken HTML-side, der skal vises
-        return "update";
+        return "updatemusic";
     }
 
     @PostMapping("/update")

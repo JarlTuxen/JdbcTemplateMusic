@@ -25,7 +25,7 @@ public class MusicRepository {
     public void insert(MusicData musicData){
         final String INSERT_SQL = "INSERT INTO albums (artist, year, company, title) VALUES (?, ?, ?, ?);";
 
-        jdbcTemplate.update(INSERT_SQL, musicData.getArtist(), musicData.getYear(), musicData.getCompany(), musicData.getCompany());
+        jdbcTemplate.update(INSERT_SQL, musicData.getArtist(), musicData.getYear(), musicData.getCompany(), musicData.getTitle());
     }
 
     public MusicData findById(int id){
