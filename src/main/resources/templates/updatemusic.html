@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Music Data</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/metal.css}" href="../static/css/metal.css"/>
+</head>
+<body>
+<h2>Update album</h2>
+
+<form action="/update" method="post">
+
+    <input name="idalbum" type="hidden" th:value="${musicdata.idalbum}">
+
+    <label for="artist-field">Artist:</label>
+    <input id="artist-field" name="artist" type="text" th:value="${musicdata.artist}">
+
+    <label for="title-field">Title:</label>
+    <input id="title-field" name="title" type="text" th:value="${musicdata.title}">
+
+    <label for="year-field">Year:</label>
+    <input id="year-field" name="year" type="number" th:value="${musicdata.year}">
+
+    <label for="company-field">Company:</label>
+    <input id="company-field" name="company" type="text" th:value="${musicdata.company}">
+
+    <input type="submit" value="Update album">
+
+</form>
+
+</body>
+</html>

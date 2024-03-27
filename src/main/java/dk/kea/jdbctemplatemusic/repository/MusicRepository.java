@@ -29,18 +29,18 @@ public class MusicRepository {
     }
 
     public MusicData findById(int id){
-        final String FIND_BY_ID_SQL = "SELECT * FROM albums WHERE id = ?;";
+        final String FIND_BY_ID_SQL = "SELECT * FROM albums WHERE idalbum = ?;";
         RowMapper<MusicData> rowMapper = new BeanPropertyRowMapper<>(MusicData.class);
         return jdbcTemplate.queryForObject(FIND_BY_ID_SQL, rowMapper, id);
     }
 
     public void deleteById(int id){
-        final String DELETE_BY_ID = "DELETE FROM albums WHERE id = ?;";
+        final String DELETE_BY_ID = "DELETE FROM albums WHERE idalbum = ?;";
         jdbcTemplate.update(DELETE_BY_ID, id);
     }
 
     public void update(MusicData musicData){
-        final String UPDATE_SQL = "UPDATE albums SET artist = ?, year = ?, company = ?, title = ? WHERE id = ?";
+        final String UPDATE_SQL = "UPDATE albums SET artist = ?, year = ?, company = ?, title = ? WHERE idalbum = ?";
         jdbcTemplate.update(UPDATE_SQL, musicData.getArtist(), musicData.getYear(), musicData.getCompany(), musicData.getTitle(), musicData.getIdalbum());
     }
 

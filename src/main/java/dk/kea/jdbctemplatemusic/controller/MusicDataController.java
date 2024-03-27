@@ -63,7 +63,13 @@ public class MusicDataController {
     }
 
     @PostMapping("/update")
-    public String updateMusicDat(@RequestBody MusicData musicData){
+    public String updateMusicData(@RequestParam("idalbum") int idalbum,
+                                  @RequestParam("artist") String artist,
+                                  @RequestParam("title") String title,
+                                  @RequestParam("year") int year,
+                                  @RequestParam("company") String company){
+        //lav musicData
+        MusicData musicData = new MusicData(idalbum, artist, title, year, company);
 
         //kald opdater i repository
         musicRepository.update(musicData);

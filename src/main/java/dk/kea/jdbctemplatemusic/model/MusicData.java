@@ -9,6 +9,14 @@ public class MusicData {
 
     public MusicData(){}
 
+    public MusicData(int idalbum, String artist, String title, int year, String company) {
+        this.idalbum = idalbum;
+        this.artist = artist;
+        this.title = title;
+        this.year = year;
+        this.company = company;
+    }
+
     public MusicData(String artist, String title, int year, String company) {
         this.artist = artist;
         this.title = title;
