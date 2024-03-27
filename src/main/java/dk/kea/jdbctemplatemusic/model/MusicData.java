@@ -1,6 +1,7 @@
 package dk.kea.jdbctemplatemusic.model;
 
 public class MusicData {
+    private int idalbum;
     private String artist;
     private String title;
     private int year;
@@ -48,8 +49,22 @@ public class MusicData {
         this.company = company;
     }
 
+    public int getIdalbum() {
+        return idalbum;
+    }
+
+    public void setIdalbum(int idalbum) {
+        this.idalbum = idalbum;
+    }
+
     @Override
     public String toString() {
-        return "Artist: " + artist + ", Title: " + title + ", Year: " + year + ", Record Company: " + company;
+        return "MusicData{" +
+                "idalbum=" + idalbum +
+                ", artist='" + artist + '\'' +
+                ", title='" + title + '\'' +
+                ", year=" + year +
+                ", company='" + company + '\'' +
+                '}';
     }
 }

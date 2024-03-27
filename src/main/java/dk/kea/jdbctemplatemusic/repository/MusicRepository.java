@@ -4,6 +4,7 @@ import dk.kea.jdbctemplatemusic.model.MusicData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -16,10 +17,32 @@ public class MusicRepository {
     private JdbcTemplate jdbcTemplate;
 
     public List<MusicData> getAll(){
-        String sql = "SELECT * FROM albums ORDER BY year";
-        List<MusicData> albums = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(MusicData.class));
+        final String GET_ALL_SQL = "SELECT * FROM albums ORDER BY year";
+        List<MusicData> albums = jdbcTemplate.query(GET_ALL_SQL, new BeanPropertyRowMapper<>(MusicData.class));
 
         return albums;
+    }
+
+    public void insert(MusicData musicData){
+        final String INSERT_SQL = "INSERT INTO albums (artist, year, company, title) VALUES (?, ?, ?, ?);";
+
+        jdbcTemplate.update(INSERT_SQL, musicData.getArtist(), musicData.getYear(), musicData.getCompany(), musicData.getCompany());
+    }
+
+    public MusicData getMusicDataById(int id){
+        final String FIND_BY_ID_SQL = "SELECT * FROM albums WHERE id = ?;";
+        RowMapper<MusicData> rowMapper = new BeanPropertyRowMapper<>(MusicData.class);
+        return jdbcTemplate.queryForObject(FIND_BY_ID_SQL, rowMapper, id);
+    }
+
+    public void deleteById(int id){
+        final String DELETE_BY_ID = "DELETE FROM albums WHERE id = ?;";
+        jdbcTemplate.update(DELETE_BY_ID, id);
+    }
+
+    public void update(MusicData musicData){
+        final String UPDATE_SQL = "UPDATE albums SET artist = ?, year = ?, company = ?, title = ? WHERE id = ?";
+        jdbcTemplate.update(UPDATE_SQL, musicData.getArtist(), musicData.getYear(), musicData.getCompany(), musicData.getTitle(), musicData.getIdalbum());
     }
 
     public List<MusicData> getAllStatic() {
