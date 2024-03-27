@@ -61,19 +61,19 @@ public class MusicRepository {
         return albums;
     }
 
-    public int avgYear(){
+    public Integer avgYear(){
         final String sql = "SELECT AVG(year) FROM albums";
         return jdbcTemplate.queryForObject(sql, Integer.class);
 
     }
 
-    public int minYear(){
+    public Integer minYear(){
         final String sql = "SELECT MIN(year) FROM albums";
         return jdbcTemplate.queryForObject(sql, Integer.class);
 
     }
 
-    public int maxYear(){
+    public Integer maxYear(){
         final String sql = "SELECT MAX(year) FROM albums";
         return jdbcTemplate.queryForObject(sql, Integer.class);
 
