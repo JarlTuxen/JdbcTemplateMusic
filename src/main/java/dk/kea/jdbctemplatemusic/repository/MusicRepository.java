@@ -16,7 +16,7 @@ public class MusicRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<MusicData> getAll(){
+    public List<MusicData> findAll(){
         final String GET_ALL_SQL = "SELECT * FROM albums ORDER BY year";
         List<MusicData> albums = jdbcTemplate.query(GET_ALL_SQL, new BeanPropertyRowMapper<>(MusicData.class));
 
@@ -29,7 +29,7 @@ public class MusicRepository {
         jdbcTemplate.update(INSERT_SQL, musicData.getArtist(), musicData.getYear(), musicData.getCompany(), musicData.getCompany());
     }
 
-    public MusicData getMusicDataById(int id){
+    public MusicData findById(int id){
         final String FIND_BY_ID_SQL = "SELECT * FROM albums WHERE id = ?;";
         RowMapper<MusicData> rowMapper = new BeanPropertyRowMapper<>(MusicData.class);
         return jdbcTemplate.queryForObject(FIND_BY_ID_SQL, rowMapper, id);
