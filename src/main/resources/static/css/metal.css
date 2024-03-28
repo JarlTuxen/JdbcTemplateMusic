@@ -90,3 +90,15 @@ input[type="submit"]:hover {
     background-color: #fff;
     color: #000;
 }
+
+/* links */
+/* metal.css */
+
+a {
+    color: #ffcc00; /* Set link color */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    color: #fff; /* Change color on hover */
+}
