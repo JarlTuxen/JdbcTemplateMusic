@@ -79,9 +79,9 @@ public class MusicDataController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable("id") int id){
+    public String deleteProduct(@PathVariable("id") int deleteId){
         //slet fra repository
-        musicRepository.deleteById(id);
+        musicRepository.deleteById(deleteId);
 
         //returner til index-siden
         return "redirect:/";
